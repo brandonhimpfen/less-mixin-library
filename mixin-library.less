@@ -1,0 +1,370 @@
+/**
+ * Less Mixin Library
+ * Version: 1.0.0
+ * Author: Brandon Himpfen
+ * License: MIT License
+ * Description: Less Mixin Library is a simple, lightweight, yet powerful mixin library for Less.
+ *
+ * Usage:
+ * Step 1. Import this mixin library into your Less stylesheet using the @import directive.
+ *    Example: @import "mixin-library.less";
+ *
+ * Step 2. Use the provided mixins in your stylesheets to streamline your CSS development.
+ *    Example: 
+ *    .button {
+ *      .border-radius(5px);
+ *      .box-shadow(2px, 2px, 4px, #999);
+ *      .transition();
+ *    }
+ */
+
+// Mixin for creating rounded corners
+.border-radius(@radius) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+// Mixin for adding box shadows
+.box-shadow(@x, @y, @blur, @color) {
+  box-shadow: @x @y @blur @color;
+  -webkit-box-shadow: @x @y @blur @color;
+  -moz-box-shadow: @x @y @blur @color;
+}
+
+// Mixin for setting text shadows
+.text-shadow(@x, @y, @blur, @color) {
+  text-shadow: @x @y @blur @color;
+}
+
+// Mixin for generating gradients
+.gradient(@start-color, @end-color) {
+  background: @start-color;
+  background: linear-gradient(@start-color, @end-color);
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d',GradientType=0)",argb(@start-color),argb(@end-color)));
+}
+
+// Mixin for setting transition properties
+.transition(@property: all, @duration: 0.3s, @timing-function: ease) {
+  transition: @property @duration @timing-function;
+}
+
+// Mixin for applying CSS3 transforms
+.transform(@transforms) {
+  transform: @transforms;
+  -webkit-transform: @transforms;
+  -moz-transform: @transforms;
+}
+
+// Mixin for setting opacity
+.opacity(@opacity) {
+  opacity: @opacity;
+  filter: alpha(opacity=(@opacity * 100));
+}
+
+// Mixin for setting width and height
+.size(@width, @height: @width) {
+  width: @width;
+  height: @height;
+}
+
+// Mixin for centering elements
+.centered() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Mixin for setting box-sizing property
+.box-sizing(@value: border-box) {
+  -webkit-box-sizing: @value;
+  -moz-box-sizing: @value;
+  box-sizing: @value;
+}
+
+// Mixin for creating a flexbox container
+.flexbox() {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+}
+
+// Mixin for setting flex properties
+.flex(@value: 1) {
+  flex: @value;
+  -webkit-flex: @value;
+  -moz-flex: @value;
+  -ms-flex: @value;
+}
+
+// Mixin for gradient text
+.gradient-text(@start-color, @end-color) {
+  background: @start-color;
+  background: linear-gradient(@start-color, @end-color);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+// Mixin for embedding custom fonts
+.font-face(@font-family, @font-path) {
+  @font-face {
+    font-family: @font-family;
+    src: url('@{font-path}.eot');
+    src: url('@{font-path}.eot?#iefix') format('embedded-opentype'),
+         url('@{font-path}.woff') format('woff'),
+         url('@{font-path}.ttf') format('truetype'),
+         url('@{font-path}.svg#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+// Mixin for defining animation keyframes
+.keyframes(@name) {
+  @-webkit-keyframes @name {
+    @arguments();
+  }
+  @-moz-keyframes @name {
+    @arguments();
+  }
+  @keyframes @name {
+    @arguments();
+  }
+}
+
+// Mixin for adding ellipsis to text overflow
+.text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Mixin for setting background size
+.background-size(@size) {
+  background-size: @size;
+  -webkit-background-size: @size;
+  -moz-background-size: @size;
+}
+
+// Mixin for transitioning all properties
+.transition-all(@duration: 0.3s, @timing-function: ease) {
+  .transition(all, @duration, @timing-function);
+}
+
+// Mixin for rotating an element
+.rotate(@degrees) {
+  transform: rotate(@degrees);
+  -webkit-transform: rotate(@degrees);
+  -moz-transform: rotate(@degrees);
+}
+
+// Mixin for scaling an element
+.scale(@x, @y) {
+  transform: scale(@x, @y);
+  -webkit-transform: scale(@x, @y);
+  -moz-transform: scale(@x, @y);
+}
+
+// Mixin for translating an element
+.translate(@x, @y) {
+  transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+}
+
+// Mixin for generating linear gradients
+.linear-gradient(@direction, @colors...) {
+  background: linear-gradient(@direction, @colors);
+}
+
+// Mixin for generating radial gradients
+.radial-gradient(@shape, @size, @colors...) {
+  background: radial-gradient(@shape, @size, @colors);
+}
+
+// Mixin for transitioning opacity
+.opacity-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(opacity, @duration, @timing-function);
+}
+
+// Mixin for transitioning rotation
+.rotate-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(transform, @duration, @timing-function);
+}
+
+// Mixin for transitioning scaling
+.scale-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(transform, @duration, @timing-function);
+}
+
+// Mixin for transitioning translation
+.translate-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(transform, @duration, @timing-function);
+}
+
+// Mixin for creating a CSS triangle
+.triangle(@width, @height, @color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 @width/2 @height;
+  border-color: transparent transparent @color transparent;
+}
+
+// Mixin for creating a CSS circle
+.circle(@size, @color) {
+  width: @size;
+  height: @size;
+  background-color: @color;
+  border-radius: 50%;
+}
+
+// Mixin for styling placeholder text
+.placeholder-color(@color) {
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+  &:-moz-placeholder {
+    color: @color;
+  }
+  &::-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+}
+
+// Mixin for styling a flexbox column
+.flexbox-column() {
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+}
+
+// Mixin for adding text underline styles
+.text-underline(@color) {
+  text-decoration: underline;
+  text-decoration-color: @color;
+}
+
+// Mixin for adding text strike-through styles
+.text-strike-through(@color) {
+  text-decoration: line-through;
+  text-decoration-color: @color;
+}
+
+// Mixin for styling a custom border
+.custom-border(@width, @style, @color) {
+  border: @width @style @color;
+}
+
+// Mixin for styling scrollbars
+.custom-scrollbar(@width, @thumb-color, @track-color) {
+  scrollbar-width: thin;
+  scrollbar-color: @thumb-color @track-color;
+}
+
+// Mixin for defining colors using HSL
+.hsl(@hue, @saturation, @lightness) {
+  color: hsl(@hue, @saturation, @lightness);
+}
+
+// Mixin for setting the box-sizing property to border-box
+.box-sizing-border-box() {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+// Mixin for setting font size with fallbacks
+.font-size(@size, @line-height: false, @fallback-size: false) {
+  font-size: @size;
+  @if (@line-height) {
+    line-height: @line-height;
+  }
+  @if (@fallback-size) {
+    font-size: @fallback-size;
+  }
+}
+
+// Mixin for centering text horizontally and vertically
+.text-center() {
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin for applying a gradient border
+.gradient-border(@width, @color1, @color2) {
+  background: linear-gradient(to right, @color1, @color1) no-repeat,
+              linear-gradient(to right, @color2, @color2) no-repeat,
+              linear-gradient(to top, @color1, @color1) no-repeat,
+              linear-gradient(to top, @color2, @color2) no-repeat;
+  background-size: @width 100%, @width 100%, 100% @width, 100% @width;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border: @width solid transparent;
+}
+
+// Mixin for styling a flexbox row
+.flexbox-row() {
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+}
+
+// Mixin for setting the z-index property
+.z-index(@value) {
+  z-index: @value;
+}
+
+// Mixin for applying text transformations
+.text-transform(@transform) {
+  text-transform: @transform;
+}
+
+// Mixin for applying Gaussian blur
+.blur(@radius) {
+  filter: blur(@radius);
+}
+
+// Mixin for adjusting image saturation
+.saturate(@percentage) {
+  filter: saturate(@percentage);
+}
+
+// Mixin for rotating image hue
+.hue-rotate(@degrees) {
+  filter: hue-rotate(@degrees);
+}
+
+// Mixin for converting image to grayscale
+.grayscale() {
+  filter: grayscale(100%);
+}
+
+// Mixin for creating a box reflection effect
+.box-reflect(@direction, @fade) {
+  -webkit-box-reflect: @direction @fade;
+}
+
+// Mixin for setting the flexbox order property
+.flex-order(@order) {
+  order: @order;
+  -webkit-order: @order;
+  -moz-order: @order;
+}
+
+// Mixin for applying text styles
+.text-styles(@styles) {
+  font-weight: extract(@styles, weight);
+  font-style: extract(@styles, style);
+  text-decoration: extract(@styles, decoration);
+}
