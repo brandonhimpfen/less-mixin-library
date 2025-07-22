@@ -1,0 +1,44 @@
+/**
+ * Utilities Mixins
+ * Description: Reusable utility mixins for sizing, z-index, box-sizing, text transformation, and more.
+ */
+
+// Mixin for setting width and height
+.size(@width, @height: @width) {
+  width: @width;
+  height: @height;
+}
+
+// Mixin for setting the z-index property
+.z-index(@value) {
+  z-index: @value;
+}
+
+// Mixin for setting box-sizing property
+.box-sizing(@value: border-box) {
+  -webkit-box-sizing: @value;
+  -moz-box-sizing: @value;
+  box-sizing: @value;
+}
+
+// Mixin for setting the box-sizing property to border-box
+.box-sizing-border-box() {
+  .box-sizing(border-box);
+}
+
+// Mixin for styling a custom border
+.custom-border(@width, @style, @color) {
+  border: @width @style @color;
+}
+
+// Mixin for applying text transformations
+.text-transform(@transform) {
+  text-transform: @transform;
+}
+
+// Optional: Vendor helper to reduce repetition
+.vendor(@property, @value) {
+  -webkit-@{property}: @value;
+  -moz-@{property}: @value;
+  @{property}: @value;
+}

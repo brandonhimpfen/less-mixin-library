@@ -1,0 +1,52 @@
+/**
+ * Layout Mixins
+ * Description: Mixins to help structure and align elements, including centering, circles, triangles, and aspect ratios.
+ */
+
+// Mixin for centering elements absolutely
+.centered() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Mixin for centering text horizontally and vertically using Flexbox
+.text-center() {
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin for creating a CSS triangle
+.triangle(@width, @height, @color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 @width / 2 @height;
+  border-color: transparent transparent @color transparent;
+}
+
+// Mixin for creating a CSS circle
+.circle(@size, @color) {
+  width: @size;
+  height: @size;
+  background-color: @color;
+  border-radius: 50%;
+}
+
+// Mixin for setting aspect ratio
+.aspect-ratio(@width, @height) {
+  aspect-ratio: @width / @height;
+}
+
+// Mixin for clearing floated content
+.clearfix() {
+  &::after {
+    content: \"\";
+    display: table;
+    clear: both;
+  }
+}

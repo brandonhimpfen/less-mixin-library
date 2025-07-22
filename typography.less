@@ -1,0 +1,68 @@
+/**
+ * Typography Mixins
+ * Description: Mixins for managing text styles, shadows, decoration, and custom font handling.
+ */
+
+// Mixin for setting text shadows
+.text-shadow(@x, @y, @blur, @color) {
+  text-shadow: @x @y @blur @color;
+}
+
+// Mixin for adding ellipsis to text overflow
+.text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Mixin for adding text underline styles
+.text-underline(@color) {
+  text-decoration: underline;
+  text-decoration-color: @color;
+}
+
+// Mixin for adding text strike-through styles
+.text-strike-through(@color) {
+  text-decoration: line-through;
+  text-decoration-color: @color;
+}
+
+// Mixin for setting font size with optional line-height and fallback
+.font-size(@size, @line-height: false, @fallback-size: false) {
+  font-size: @size;
+  @if (@line-height) {
+    line-height: @line-height;
+  }
+  @if (@fallback-size) {
+    font-size: @fallback-size;
+  }
+}
+
+// Mixin for applying multiple text styles from a map
+.text-styles(@styles) {
+  font-weight: extract(@styles, weight);
+  font-style: extract(@styles, style);
+  text-decoration: extract(@styles, decoration);
+}
+
+// Mixin for gradient text
+.gradient-text(@start-color, @end-color) {
+  background: @start-color;
+  background: linear-gradient(@start-color, @end-color);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+// Mixin for embedding custom fonts
+.font-face(@font-family, @font-path) {
+  @font-face {
+    font-family: @font-family;
+    src: url('@{font-path}.eot');
+    src: url('@{font-path}.eot?#iefix') format('embedded-opentype'),
+         url('@{font-path}.woff') format('woff'),
+         url('@{font-path}.ttf') format('truetype'),
+         url('@{font-path}.svg#@{font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+}

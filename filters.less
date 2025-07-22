@@ -1,0 +1,24 @@
+/**
+ * Filter Mixins
+ * Description: Mixins for applying CSS filter effects to elements.
+ */
+
+// Mixin for applying Gaussian blur
+.blur(@radius) {
+  filter: blur(@radius);
+}
+
+// Mixin for adjusting image saturation
+.saturate(@percentage) {
+  filter: saturate(@percentage);
+}
+
+// Mixin for rotating image hue
+.hue-rotate(@degrees) {
+  filter: hue-rotate(@degrees);
+}
+
+// Mixin for converting image to grayscale
+.grayscale() {
+  filter: grayscale(100%);
+}

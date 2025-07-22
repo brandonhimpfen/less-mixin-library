@@ -1,0 +1,42 @@
+/**
+ * Effects Mixins
+ * Description: Visual styling effects like shadows, borders, opacity, and box reflections.
+ */
+
+// Mixin for adding box shadows
+.box-shadow(@x, @y, @blur, @color) {
+  box-shadow: @x @y @blur @color;
+  -webkit-box-shadow: @x @y @blur @color;
+  -moz-box-shadow: @x @y @blur @color;
+}
+
+// Mixin for setting opacity with fallback
+.opacity(@opacity) {
+  opacity: @opacity;
+  filter: alpha(opacity=(@opacity * 100));
+}
+
+// Mixin for applying Gaussian blur
+.blur(@radius) {
+  filter: blur(@radius);
+}
+
+// Mixin for adjusting image saturation
+.saturate(@percentage) {
+  filter: saturate(@percentage);
+}
+
+// Mixin for rotating image hue
+.hue-rotate(@degrees) {
+  filter: hue-rotate(@degrees);
+}
+
+// Mixin for converting image to grayscale
+.grayscale() {
+  filter: grayscale(100%);
+}
+
+// Mixin for creating a box reflection effect
+.box-reflect(@direction, @fade) {
+  -webkit-box-reflect: @direction @fade;
+}

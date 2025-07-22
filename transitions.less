@@ -1,0 +1,47 @@
+/**
+ * Transitions Mixins
+ * Description: Mixins for simplifying and customizing CSS transitions and animations.
+ */
+
+// Mixin for setting transition properties
+.transition(@property: all, @duration: 0.3s, @timing-function: ease) {
+  transition: @property @duration @timing-function;
+}
+
+// Mixin for transitioning all properties
+.transition-all(@duration: 0.3s, @timing-function: ease) {
+  .transition(all, @duration, @timing-function);
+}
+
+// Mixin for transitioning opacity
+.opacity-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(opacity, @duration, @timing-function);
+}
+
+// Mixin for transitioning rotation (transform)
+.rotate-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(transform, @duration, @timing-function);
+}
+
+// Mixin for transitioning scaling (transform)
+.scale-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(transform, @duration, @timing-function);
+}
+
+// Mixin for transitioning translation (transform)
+.translate-transition(@duration: 0.3s, @timing-function: ease) {
+  .transition(transform, @duration, @timing-function);
+}
+
+// Mixin for defining animation keyframes
+.keyframes(@name) {
+  @-webkit-keyframes @name {
+    @arguments();
+  }
+  @-moz-keyframes @name {
+    @arguments();
+  }
+  @keyframes @name {
+    @arguments();
+  }
+}

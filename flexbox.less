@@ -1,0 +1,57 @@
+/**
+ * Flexbox Mixins
+ * Description: Mixins for creating and customizing flexbox layouts.
+ */
+
+// Mixin for creating a flexbox container
+.flexbox() {
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+}
+
+// Mixin for creating a flexbox row
+.flexbox-row() {
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+}
+
+// Mixin for creating a flexbox column
+.flexbox-column() {
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+}
+
+// Mixin for setting flex-grow/shrink/basis
+.flex(@value: 1) {
+  flex: @value;
+  -webkit-flex: @value;
+  -moz-flex: @value;
+  -ms-flex: @value;
+}
+
+// Mixin for setting the order of flex items
+.flex-order(@order) {
+  order: @order;
+  -webkit-order: @order;
+  -moz-order: @order;
+}
+
+// Mixin for justifying content
+.justify-content(@value) {
+  justify-content: @value;
+  -webkit-justify-content: @value;
+  -ms-flex-pack: @value;
+}
+
+// Mixin for aligning items
+.align-items(@value) {
+  align-items: @value;
+  -webkit-align-items: @value;
+  -ms-flex-align: @value;
+}

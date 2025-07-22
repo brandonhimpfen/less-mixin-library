@@ -1,0 +1,28 @@
+/**
+ * Responsive Mixins
+ * Description: Mixins for handling breakpoints and responsive behaviors.
+ */
+
+// Mixin for media queries based on common named breakpoints
+.respond-to(@breakpoint, @rules) when (@breakpoint = small) {
+  @media (max-width: 600px) {
+    @rules();
+  }
+}
+.respond-to(@breakpoint, @rules) when (@breakpoint = medium) {
+  @media (min-width: 601px) and (max-width: 1024px) {
+    @rules();
+  }
+}
+.respond-to(@breakpoint, @rules) when (@breakpoint = large) {
+  @media (min-width: 1025px) {
+    @rules();
+  }
+}
+
+// Mixin for setting background size responsively
+.background-size(@size) {
+  background-size: @size;
+  -webkit-background-size: @size;
+  -moz-background-size: @size;
+}
